@@ -20,8 +20,8 @@
 * Не успешных - 12(31,57%)
 * 
 ## Подготовлены отчёты:
-* Отчёт Allure CreditPurchaseTest (https://github.com/Viktor2491/QA-Diplom/issues/9)
-* Отчёт Allure DebitPurchaseTest (https://github.com/Viktor2491/QA-Diplom/issues/10)
+* [Отчёт Allure CreditPurchaseTest](https://github.com/Viktor2491/QA-Diplom/issues/9)
+* [Отчёт Allure DebitPurchaseTest](https://github.com/Viktor2491/QA-Diplom/issues/10)
 ## Общие рекомендации:
 * Создать документацию для данного приложения;
 * Добавить функциональность блокирования кнопки "Продолжить" до тех пор, пока все поля не будут заполнены корректными значениями;
