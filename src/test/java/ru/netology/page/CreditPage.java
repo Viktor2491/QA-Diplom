@@ -44,7 +44,7 @@ public class CreditPage {
 
     public void waitNotificationApproved() {
         approvedOperation.shouldBe(visible, Duration.ofSeconds(10));
-        cancelField.click();
+       // cancelField.click();
     }
 
     public void waitNotificationFailure() {
