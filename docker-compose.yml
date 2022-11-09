@@ -11,6 +11,9 @@ services:
     image: mysql:8.0
 #    volumes:
 #      - ./data/mysql:/var/lib/mysql
+#     volumes:
+#       - ./data/mysql:/var/lib/mysql
+
     ports:
       - '3306:3306'
     environment:
@@ -25,6 +28,8 @@ services:
       - '5432:5432'
 #    volumes:
 #      - ./data/postgres:/var/lib/postgres
+#     volumes:
+#       - ./data/postgres:/var/lib/postgres
     environment:
       - POSTGRES_DB=base_postgresql
       - POSTGRES_USER=base
