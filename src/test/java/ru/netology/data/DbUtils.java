@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class DbUtils {
 
-      private static final String datasource = System.getProperty("datasource");
+    private static final String datasource = System.getProperty("datasource");
 
     @SneakyThrows
     public static void clearDB() {

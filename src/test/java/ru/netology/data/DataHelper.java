@@ -21,22 +21,22 @@ public class DataHelper {
         return new Card("", "", "", "", "");
     }
 
-    public static String getShiftedMonth(){
+    public static String getShiftedMonth() {
         int shift = (int) (Math.random() * 10);
         return LocalDate.now().plusMonths(shift).format(DateTimeFormatter.ofPattern("MM"));
     }
 
-    public static String getShiftedYear(int yearCount){
+    public static String getShiftedYear(int yearCount) {
         return LocalDate.now().plusYears(yearCount).format(DateTimeFormatter.ofPattern("YY"));
     }
 
-    public static Card getNumberCard15Symbols() {
+    public static Card getNumberCard11Symbols() {
         Faker faker = new Faker();
         String holder = faker.name().firstName() + " " + faker.name().lastName();
         String month = getShiftedMonth();
         String year = getShiftedYear(1);
         String cvv = faker.number().digits(3);
-        String number = faker.number().digits(15);
+        String number = faker.number().digits(11);
         return new Card(number, month, year, holder, cvv);
     }
 
@@ -104,7 +104,7 @@ public class DataHelper {
         Faker faker = new Faker();
         String holder = faker.name().firstName() + " " + faker.name().lastName();
         String month = getShiftedMonth();
-        String year = getShiftedYear(1);
+        String year = getShiftedYear(-1);
         String cvv = faker.number().digits(3);
         return new Card("4444444444444441", month, year, holder, cvv);
     }

@@ -12,17 +12,16 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DebitPurchaseTest {
-    //public static String url = System.getProperty("sut.url");
 
     @BeforeEach
     public void openPage() {
         open("http://localhost:8080");
     }
 
-//    @AfterEach
-//    public void cleanBase() {
-//
-//    }
+    @AfterEach
+    public void cleanBase() {
+        DbUtils.clearDB();
+    }
 
     @BeforeAll
     static void setUpAll() {
@@ -32,10 +31,10 @@ public class DebitPurchaseTest {
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
-        DbUtils.clearDB();
     }
 
     @Test
+    @DisplayName("Покупка тура с одобренной картой и валидными данными")
     void buyPositiveAllFieldValidApproved() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -45,6 +44,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Покупка тура с отклоненной картой и валидными данными")
     void buyPositiveAllFieldValidDeclined() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -54,6 +54,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Все поля пустые")
     void buyNegativeAllFieldEmpty() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -63,15 +64,17 @@ public class DebitPurchaseTest {
     }
 
     @Test
-    void buyNegativeNumberCard15Symbols() {
+    @DisplayName("Номер карты из 11 символов")
+    void buyNegativeNumberCard11Symbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
-        payment.inputData(DataHelper.getNumberCard15Symbols());
+        payment.inputData(DataHelper.getNumberCard11Symbols());
         payment.waitNotificationWrongFormat();
         assertEquals("0", DbUtils.getOrderCount());
     }
 
     @Test
+    @DisplayName("Несуществующая карта")
     void buyNegativeCardNotInDatabase() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -81,6 +84,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("1 символ в поле 'месяц'")
     void buyNegativeMonth1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -90,6 +94,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Месяц действия карты больше 12")
     void buyNegativeMonthOver12() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -99,6 +104,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле месяц действия карты значение-00 действующего года")
     void buyNegativeMonth00ThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -108,6 +114,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле месяц действия карты значение-00 следующего года")
     void buyNegativeMonth00OverThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -117,6 +124,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Значение-00 в поле год действия")
     void buyNegativeYear00() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -126,6 +134,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле год действия карты 1 символ")
     void buyNegativeYear1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -135,6 +144,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Просроченная карта")
     void buyNegativeYearUnderThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -144,6 +154,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("Срок действия карты 6 лет")
     void buyNegativeYearOverThisYearOn6() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -153,6 +164,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("CVV 1 символ")
     void buyNegativeCvv1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -162,6 +174,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("CVV 2 символ")
     void buyNegativeCvv2Symbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -171,6 +184,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("в поле владелец карты 1 слово")
     void buyNegativeOwner1Word() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -180,6 +194,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты значения написаны кирилицей")
     void buyNegativeOwnerCirillic() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -189,6 +204,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты -(имя + цифры)")
     void buyNegativeOwnerNumeric() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();
@@ -198,6 +214,7 @@ public class DebitPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты -(имя + специмволы)")
     void buyNegativeOwnerSpecialSymbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToBuyPage();

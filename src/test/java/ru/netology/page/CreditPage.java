@@ -44,7 +44,6 @@ public class CreditPage {
 
     public void waitNotificationApproved() {
         approvedOperation.shouldBe(visible, Duration.ofSeconds(10));
-       // cancelField.click();
     }
 
     public void waitNotificationFailure() {
@@ -65,6 +64,7 @@ public class CreditPage {
 
     public void waitNotificationWrongFormat4Fields() {
         wrongFormat4Error.shouldHaveSize(4);
-        requiredFieldError.shouldBe(visible, Duration.ofSeconds(10));;
+        requiredFieldError.shouldBe(visible, Duration.ofSeconds(10));
+        ;
     }
 }

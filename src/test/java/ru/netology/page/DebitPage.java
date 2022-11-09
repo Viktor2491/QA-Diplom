@@ -44,7 +44,7 @@ public class DebitPage {
 
     public void waitNotificationApproved() {
         approvedOperation.shouldBe(visible, Duration.ofSeconds(10));
-        cancelField.click();
+
     }
 
     public void waitNotificationFailure() {

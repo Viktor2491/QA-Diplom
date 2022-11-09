@@ -38,10 +38,10 @@ dependencies {
 }
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', System.getProperty('headless')
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     //Выбирается одна из баз данных:
     //Для работы с базой данных mySQL (со строки ниже необходимо снять комментарий):
-    systemProperty 'datasource', System.getProperty('datasource', 'jdbc:mysql://185.119.57.164:3306/base_mysql')
+    systemProperty 'datasource', System.getProperty('datasource', 'jdbc:mysql://185.119.57.176:3306/base_mysql')
     //Для работы с базой данных postgreSQL (со строки ниже необходимо снять комментарий):
-    //systemProperty 'datasource', System.getProperty('datasource', 'jdbc:postgresql://185.119.57.164:5432/base_postgresql')
+    //systemProperty 'datasource', System.getProperty('datasource', 'jdbc:postgresql://185.119.57.176:5432/base_postgresql')
 }

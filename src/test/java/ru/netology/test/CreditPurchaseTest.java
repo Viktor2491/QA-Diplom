@@ -34,6 +34,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Покупка тура в кредит с одобренной картой и валидными данными")
     void creditPositiveAllFieldValidApproved() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -43,6 +44,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Покупка тура в кредит с отклоненной картой и валидными данными")
     void creditPositiveAllFieldValidDeclined() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -52,6 +54,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Все поля пустые")
     void creditNegativeAllFieldEmpty() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -61,15 +64,17 @@ public class CreditPurchaseTest {
     }
 
     @Test
-    void creditNegativeNumberCard15Symbols() {
+    @DisplayName("Номер карты из 11 символов")
+    void creditNegativeNumberCard11Symbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
-        payment.inputData(DataHelper.getNumberCard15Symbols());
+        payment.inputData(DataHelper.getNumberCard11Symbols());
         payment.waitNotificationWrongFormat();
         assertEquals("0", DbUtils.getOrderCount());
     }
 
     @Test
+    @DisplayName("Несуществующая карта")
     void creditNegativeCardNotInDatabase() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -79,6 +84,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("1 символ в поле 'месяц'")
     void creditNegativeMonth1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -88,6 +94,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Месяц действия карты больше 12")
     void creditNegativeMonthOver12() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -97,6 +104,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле месяц действия карты значение-00 действующего года")
     void creditNegativeMonth00ThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -106,6 +114,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле месяц действия карты значение-00 следующего года")
     void creditNegativeMonth00OverThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -115,6 +124,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Значение-00 в поле год действия")
     void creditNegativeYear00() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -124,6 +134,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле год действия карты 1 символ")
     void creditNegativeYear1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -133,6 +144,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Просроченная карта")
     void creditNegativeYearUnderThisYear() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -142,6 +154,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("Срок действия карты 6 лет")
     void creditNegativeYearOverThisYearOn6() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -151,6 +164,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("CVV 1 символ")
     void creditNegativeCvv1Symbol() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -160,6 +174,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("CVV 2 символ")
     void creditNegativeCvv2Symbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -169,6 +184,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("в поле владелец карты 1 слово")
     void creditNegativeOwner1Word() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -178,6 +194,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты значения написаны кирилицей")
     void creditNegativeOwnerCirillic() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -187,6 +204,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты -(имя + цифры)")
     void creditNegativeOwnerNumeric() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
@@ -196,6 +214,7 @@ public class CreditPurchaseTest {
     }
 
     @Test
+    @DisplayName("В поле владелец карты -(имя + специмволы)")
     void creditNegativeOwnerSpecialSymbols() {
         val startPage = new PaymentMethod();
         val payment = startPage.goToCreditPage();
