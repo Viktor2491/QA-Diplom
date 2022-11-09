@@ -12,7 +12,7 @@
 **Тестирование было проведено для двух баз данных - MySQL и PostgreSQL.**
 
 ## Перечень выявленных ошибок
-(https://github.com/Viktor2491/QA-Diplom/issues)
+[(https://github.com/Viktor2491/QA-Diplom/issues)]
 
 ## Количество тест-кейсов и % успешных/не успешных
 * Количество тест-кейсов - 38, %
