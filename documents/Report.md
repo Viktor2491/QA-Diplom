@@ -14,11 +14,11 @@
 ## Перечень выявленных ошибок
 [Ошибки](https://github.com/Viktor2491/QA-Diplom/issues)
 
-## Количество тест-кейсов и % успешных/не успешных
+## Количество тест-кейсов (успешных/не успешных)
 * Количество тест-кейсов - 38(100%)
 * Упешные тест-кейсы - 26(68,42%)
 * Не успешных - 12(31,57%)
-* 
+ 
 ## Подготовлены отчёты:
 * [Отчёт Allure CreditPurchaseTest](https://github.com/Viktor2491/QA-Diplom/issues/9)
 * [Отчёт Allure DebitPurchaseTest](https://github.com/Viktor2491/QA-Diplom/issues/10)
