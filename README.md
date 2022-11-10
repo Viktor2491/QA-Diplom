@@ -68,13 +68,16 @@
 	```
 	`где:`
 	- `185.119.57.164` - ip-адрес удаленной машины с развернутой PostgreSQL, в случае необходимости заменить на ip-адрес своей удаленной машины с развернутой PostgreSQL.
+	- 
 1. Применить изменения (Ctrl+Shift+O);
+
 1. Далее во вкладке Terminal Intellij IDEA запустить SUT командой:
 	 ```
          java -jar artifacts/aqa-shop.jar
 	 ```
-        **Дождаться появления строки:**
-	`ru.netology.shop.ShopApplication         : Started ShopApplication in 17.116 seconds (JVM running for 19.968)`	
+	 
+      **Дождаться появления строки:**
+      `ru.netology.shop.ShopApplication         : Started ShopApplication in 17.116 seconds (JVM running for 19.968)`	
 1. Для запуска авто-тестов в Terminal Intellij IDEA открыть новую сессию и ввести команду:
 	```
 	./gradlew clean test allureReport -Dheadless=true
