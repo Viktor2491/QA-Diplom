@@ -18,7 +18,10 @@
     git clone https://github.com/Viktor2491/QA-Diplom.git
     ```
 1. Перейти в созданный каталог командой:
-cd Qa-Diplom -> cd QA-Diplom (Первая папка "Qa-Diplom" была создана в процесе "ДОЛГОЙ" настройки, поэтому оставил ее)
+    ```
+    cd Qa-Diplom -> cd QA-Diplom 
+    ```
+   (Первая папка "Qa-Diplom" была создана в процесе "ДОЛГОЙ" настройки, поэтому оставил ее)
 1. Создать и запустить необходимые Docker Container'ы командой:
 	docker-compose -p qa-diplom up -d --force-recreate
 	где:
