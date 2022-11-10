@@ -60,14 +60,14 @@
   (В моем терминале запускается вот такой командой: **gradlew allureServe**)
 ### Для работы с базой данных PostgreSQL
 1. В находящемся в проекте файле build.gradle в разделе test закомментировать строку ниже "//Для работы с базой данных mySQL" и раскомментировать строку ниже "//Для работы с базой данных postgreSQL", выглядеть будет так:
-		```
-		//Для работы с базой данных mySQL (со строки ниже необходимо снять комментарий):
-		//systemProperty 'datasource', System.getProperty('datasource', 'jdbc:mysql://185.119.57.164:3306/base_mysql')
-		//Для работы с базой данных postgreSQL (со строки ниже необходимо снять комментарий):
-		systemProperty 'datasource', System.getProperty('datasource', 'jdbc:postgresql://185.119.57.164:5432/base_postgresql')
-		```
-		`где:`
-		- `185.119.57.164` - ip-адрес удаленной машины с развернутой PostgreSQL, в случае необходимости заменить на ip-адрес своей удаленной машины с развернутой PostgreSQL.
+	```
+        //Для работы с базой данных mySQL (со строки ниже необходимо снять комментарий):
+	//systemProperty 'datasource', System.getProperty('datasource', 'jdbc:mysql://185.119.57.164:3306/base_mysql')
+	//Для работы с базой данных postgreSQL (со строки ниже необходимо снять комментарий):
+	systemProperty 'datasource', System.getProperty('datasource', 'jdbc:postgresql://185.119.57.164:5432/base_postgresql')
+	```
+	`где:`
+	- `185.119.57.164` - ip-адрес удаленной машины с развернутой PostgreSQL, в случае необходимости заменить на ip-адрес своей удаленной машины с развернутой PostgreSQL.
 1. Применить изменения (Ctrl+Shift+O);
 1. Далее во вкладке Terminal Intellij IDEA запустить SUT командой:
 	 ```
