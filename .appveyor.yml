@@ -23,7 +23,7 @@ for:
     install:
       - sudo curl -SL "https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64" -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo chmod +x /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
-      - sudo docker-compose -f /home/student/Qa-Diplom/QA-Diplom/docker-compose.yml up -d
+      - sudo docker-compose -f /home/appveyor/projects/qa-diplom/docker-compose.yml up -d
       - sleep 20
       - java -jar artifacts/aqa-shop/aqa-shop.jar --spring.datasource.url=jdbc:mysql://185.119.57.176:3306/base_mysql &
       - sleep 20
@@ -41,7 +41,7 @@ for:
     install:
       - sudo curl -SL "https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64" -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo chmod +x /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
-      - sudo docker-compose -f /home/student/Qa-Diplom/QA-Diplom/docker-compose.yml up -d
+      - sudo docker-compose -f /home/appveyor/projects/qa-diplom/docker-compose.yml up -d
       - sleep 20
       - java -jar artifacts/aqa-shop/aqa-shop.jar --spring.datasource.url=jdbc:postgresql://185.119.57.176:5432/base_postgresql &
       - sleep 20
