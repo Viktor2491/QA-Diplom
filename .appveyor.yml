@@ -21,7 +21,7 @@ for:
         - db: MySQL
 
     install:
-      - sudo curl -SL https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64 -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
+      - sudo curl -SL "https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64" -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo chmod +x /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo docker-compose -f /home/student/Qa-Diplom/QA-Diplom/docker-compose.yml up -d
       - sleep 20
@@ -39,7 +39,7 @@ for:
         - db: PostgreSQL
 
     install:
-      - sudo curl -SL https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64 -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
+      - sudo curl -SL "https://github.com/docker/compose/releases/download/v2.7.0/docker-compose-linux-x86_64" -o /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo chmod +x /home/student/Qa-Diplom/QA-Diplom/185.119.57.176/docker-compose
       - sudo docker-compose -f /home/student/Qa-Diplom/QA-Diplom/docker-compose.yml up -d
       - sleep 20
