@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/8g56qmac94cu8iai?svg=true)](https://ci.appveyor.com/project/Viktor2491/qa-diplom-30uv2)
+[![Build status](https://ci.appveyor.com/api/projects/status/h2s6l4sau2r21vc4?svg=true)](https://ci.appveyor.com/project/Viktor2491/qa-diplom)
 # Процедура запуска автотестов
 
 ## Предварительные требования
