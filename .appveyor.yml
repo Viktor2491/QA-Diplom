@@ -30,7 +30,7 @@ for:
 
     build_script:
       - chmod +x gradlew
-      - ./gradlew test --info -Dselenide.headless=true --spring.datasource.url=jdbc:mysql://185.119.57.176:3306/base_mysql
+      - ./gradlew test --info -Dselenide.headless=true -Ddatasource=jdbc:mysql://185.119.57.176:3306/base_mysql 
       - sudo docker-compose down
 
   -
@@ -48,5 +48,5 @@ for:
 
     build_script:
       - chmod +x gradlew
-      - ./gradlew test --info -Dselenide.headless=true --spring.datasource.url=jdbc:postgresql://185.119.57.176:5432/base_postgresql
+      - ./gradlew test --info -Dselenide.headless=true -Ddatasource=jdbc:postgresql://185.119.57.176:5432/base_postgresql
       - sudo docker-compose down
